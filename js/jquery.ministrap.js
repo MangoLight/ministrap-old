@@ -305,9 +305,9 @@
 		
 		function refreshBtn(btn){
 			if($(document).scrollTop()>$(window).height()*2){
-				btn.fadeIn();
+				btn.stop().show().animate({'opacity':1});
 			}else{
-				btn.fadeOut();
+				btn.stop().animate({'opacity':0},function(){$(this).hide()});
 			}
 		}
 	}
@@ -556,5 +556,5 @@
 			obj.removeClass('dropdown-opened');
 			callback.call(obj,dropdown);
 		}
-	}	
+	}
 })(jQuery);
