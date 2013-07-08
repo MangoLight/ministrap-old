@@ -1,5 +1,5 @@
 /* ==========================================================
- * Ministrap 0.1
+ * Ministrap 0.2
  * http://mangolight.github.com/ministrap
  * ==========================================================
  * Copyright 2013 MangoLight / http://www.mangolight.com
@@ -53,7 +53,7 @@
 			/* --------------- */
 			
 			/* ----- DROPDOWNS ----- */
-			$('a[data-dropdown],select:not([multiple="multiple"])').each(function(){
+			$('a[data-dropdown],select.dropdown').each(function(){
 				var scroll=$(this).attr('data-scroll');
 				if(scroll){(scroll=="true"?scroll=true:scroll=false)}
 				var columns=$(this).attr('data-columns');
@@ -213,8 +213,10 @@
 				var timer = window.setInterval(function(){ if(!slider.hasClass('hover')){slider.trigger('slideNext');} },settings.delay);
 				slider.hover(function(){
 					slider.addClass('hover');
+                    clearInterval(timer);
 				},function(){
 					slider.removeClass('hover');
+                    timer = window.setInterval(function(){ if(!slider.hasClass('hover')){slider.trigger('slideNext');} },settings.delay);
 				});
 			}
 			
@@ -265,18 +267,6 @@
 				$(this).css({'width':slider.width()});
 			});
 		}
-		
-		function slidePrev(){
-			this.slideTo(getSlide());
-		}
-		
-		function slideNext(){
-			
-		}
-		
-		function getSlide(){
-			return;
-		}
 	}
 })(jQuery);
 
@@ -304,7 +294,7 @@
 		});
 		
 		function refreshBtn(btn){
-			if($(document).scrollTop()>$(window).height()*2){
+			if($(document).scrollTop()>$(window).height()*1.5){
 				btn.stop().show().animate({'opacity':1});
 			}else{
 				btn.stop().animate({'opacity':0},function(){$(this).hide()});

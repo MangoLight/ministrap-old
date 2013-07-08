@@ -13,6 +13,10 @@ Ministrap, a small front-end framework inspired from [Bootsrap](http://twitter.g
 ## Demo
 Ministrap is used on the project's website: [http://mangolight.github.com/ministrap](http://mangolight.github.com/ministrap)
 
+It is also used on the following sites :
+- http://www.mangolight.com
+
+Feel free to contact me if you use Ministrap and would like to add your site in the list.
 
 ## Documentation
 - [Base CSS](http://mangolight.github.com/ministrap/base.html)
