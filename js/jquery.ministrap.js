@@ -44,7 +44,7 @@
 			
 			/* ----- NAV ----- */
 			$('.nav').each(function(){
-				var offset_top;
+				var offset_top = parseInt($('body').css('padding-top'))+15;
 				if($(this).attr('data-offset-top')) offset_top=parseInt($(this).attr('data-offset-top'));
 				$(this).miniNav({
 					offset_top: offset_top
@@ -355,7 +355,7 @@
     $.fn.miniNav = function(options){
 	
 		var settings = $.extend({
-			offset_top: 60 // space between top and nav during scroll
+			offset_top: 15 // space between top and nav during scroll
 		}, options);
 		
 		return this.each(function(){
