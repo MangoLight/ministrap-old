@@ -24,41 +24,41 @@ Feel free to contact me if you use Ministrap and would like to add your site in 
 
 ## Changelog
 2013-08-19:
-	- .has_sub replaced to .has-sub
-	- .modal_bg replaced to .modal-bg
-	- added .align-justify
-	- changed to-top button hover opacity from 1 to 0.75
-	- replaced row vertical margin by span vertical margin
-	- fixed some typing mistakes
-	- documentation migrated to http://www.mangolight.com/labs/ministrap/
+- .has_sub replaced to .has-sub
+- .modal_bg replaced to .modal-bg
+- added .align-justify
+- changed to-top button hover opacity from 1 to 0.75
+- replaced row vertical margin by span vertical margin
+- fixed some typing mistakes
+- documentation migrated to http://www.mangolight.com/labs/ministrap/
 	
 2013-06-20:
-	- fixed miniNav offset-top when not using top-bar
+- fixed miniNav offset-top when not using top-bar
 	
 2013-06-08:
-	=> Ministrap 0.2
-	- fixed .truncated by adding display:block
-	- changed input.input-large to .input-large, that it can be used on textareas
-	- changed .img-oval, .img-rounded, .img-shadow, .img-cirle, .img-polaroid to respectively
-	.oval, .rouned, .shadow, .circle, .polaroid, that they can be used on other elements
-	- added .hidden-mobile and .show-mobile
-	- added ul.unstyled
+=> Ministrap 0.2
+- fixed .truncated by adding display:block
+- changed input.input-large to .input-large, that it can be used on textareas
+- changed .img-oval, .img-rounded, .img-shadow, .img-cirle, .img-polaroid to respectively
+.oval, .rouned, .shadow, .circle, .polaroid, that they can be used on other elements
+- added .hidden-mobile and .show-mobile
+- added ul.unstyled
 
 2013-06-06:
-	- changed body padding-top (must use class "with-top-bar" if using a top-bar), no more padding-top by default
-	- changed box-shadow effect on buttons, more simple and light
+- changed body padding-top (must use class "with-top-bar" if using a top-bar), no more padding-top by default
+- changed box-shadow effect on buttons, more simple and light
 
 2013-05-09:
-	- fixed menu height
-	- fixed to-top button problem when crazy scrolling
-	- changed .btn-oval and .btn-square to .oval and .square that they can be used on other elements
-	- added .truncated for easy truncated text using text-overflow:ellipsis
+- fixed menu height
+- fixed to-top button problem when crazy scrolling
+- changed .btn-oval and .btn-square to .oval and .square that they can be used on other elements
+- added .truncated for easy truncated text using text-overflow:ellipsis
 	
 2013-04-13:
-	- fixed .btn text-decoration
-	- added background to code & pre tags
+- fixed .btn text-decoration
+- added background to code & pre tags
 	
 2013-04-08:
-	=> Ministrap 0.1
-	- creation of Ministrap CSS & JS
-	- creation of documentation files
+=> Ministrap 0.1
+- creation of Ministrap CSS & JS
+- creation of documentation files
