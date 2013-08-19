@@ -30,6 +30,7 @@ Feel free to contact me if you use Ministrap and would like to add your site in 
 - changed to-top button hover opacity from 1 to 0.75
 - replaced row vertical margin by span vertical margin
 - fixed some typing mistakes
+- removed shadows on top-bar, bottom and modal-title
 - documentation migrated to http://www.mangolight.com/labs/ministrap/
 	
 2013-06-20:
