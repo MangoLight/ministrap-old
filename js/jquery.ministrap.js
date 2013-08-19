@@ -16,7 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * ========================================================== */
-!function($){
+;(function($){
 
 	"use strict";
 
@@ -82,7 +82,7 @@
 
 	})
 
-}(jQuery);
+})(jQuery);
 
 
 
@@ -96,7 +96,7 @@
     $.fn.miniModal = function(options){
 		
 		var settings = $.extend({
-			background: true, // display background
+			background: true // display background
 		}, options);
 		
 		return this.not('.miniModal').each(function(){
@@ -295,7 +295,7 @@
 		
 		function refreshBtn(btn){
 			if($(document).scrollTop()>$(window).height()*1.5){
-				btn.stop().show().animate({'opacity':1});
+				btn.stop().show().animate({'opacity':0.75});
 			}else{
 				btn.stop().animate({'opacity':0},function(){$(this).hide()});
 			}
