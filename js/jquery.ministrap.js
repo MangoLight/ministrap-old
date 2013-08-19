@@ -103,7 +103,7 @@
             $(this).addClass('miniModal');
 			var link = $(this);
 			var modal = link.attr('data-modal');
-            var modal_bg = $('<div>').addClass('modal_bg').appendTo('body');
+            var modal_bg = $('<div>').addClass('modal-bg').appendTo('body');
 			if(modal.indexOf('#')==0 || modal.indexOf('.')==0){
 				modal = $(modal).appendTo('body');
 				if(modal.length>0){
