@@ -24,20 +24,6 @@
 
 		$(document).ready(function(){
 			
-			/* ----- MENU ----- */
-			$('.menu').css('cursor','pointer').click(function(){
-				if($(window).width()<680){
-					($('.menu li a').css('display')=='block'?$('.menu li a').hide():$('.menu li a').show());
-				}else{
-					$('.menu li a').show();
-				}
-			});
-			
-			$(window).resize(function(){
-				($(window).width()<680?$('.menu li a').hide():$('.menu li a').show());
-			});
-			/* --------------- */
-			
 			/* ----- TABS ----- */
 			$('.tabs').miniTabs();
 			/* --------------- */
@@ -78,6 +64,13 @@
 			$('[data-modal]').miniModal();
 			/* --------------- */
 			
+			/* ----- HINTS ----- */
+			$('[data-hint]').miniHint();
+			/* --------------- */
+			
+			/* ----- MOBILE MENU ----- */
+			$('body').miniMobileMenu();
+			/* --------------- */
 		});
 
 	})
@@ -548,3 +541,144 @@
 		}
 	}
 })(jQuery);
+
+
+
+/*
+* MiniHints
+* Developed by MangoLight Web Agency
+* http://www.mangolight.com
+* Released under the Apache License v2.0.
+*/
+(function($){
+    $.fn.miniHint = function(options){
+
+		//@TODO: Options data-hint-persistent : true/false
+		
+		return this.each(function(){
+
+			var link = $(this);
+			var hint = $('<div>').addClass('minihint').hide().appendTo('body');
+			if(link.attr('data-hint-class')) hint.addClass(link.attr('data-hint-class'));
+
+			$(window).load(function(){
+
+				positionHint();
+				
+				if(link.attr('data-hint-permanent')=='true'){
+					hint.show();
+					$(window).resize(function(){ positionHint(); });
+					$(document).change(function(){ positionHint(); });
+				}else{
+					var timer;
+					link.hover(function(){
+						clearTimeout(timer);
+						console.log('init timeout');
+						positionHint();
+						console.log(hint);
+						hint.css({'display':'block','opacity':0}).animate({'opacity':1});
+					},function(){
+						timer = setTimeout(function(){ console.log('fin timeout'); hint.animate({'opacity':0}); },500);
+					});
+				}
+			});
+			
+			function positionHint(){
+				hint.html(link.attr('data-hint'));
+				var top=0,left=0;
+				var position = link.attr('data-hint-position');
+				
+				if(position=='left' || position=='right'){
+					top = link.offset().top + getHeight(link)/2 - getHeight(hint)/2 - parseInt(hint.css('margin-top'));
+					if(position=='left'){
+						left = link.offset().left - getWidth(hint) - 10;
+					}else{
+						left = link.offset().left + getWidth(link) + 10;
+					}
+				}else{
+					left = link.offset().left + getWidth(link)/2 - getWidth(hint)/2;
+					if(position=='bottom'){
+						top = link.offset().top + getHeight(link) - parseInt(hint.css('margin-top')) + 10;
+					}else{
+						top = link.offset().top - (hint.height()+parseInt(hint.css('padding-top'))+parseInt(hint.css('padding-bottom'))) - parseInt(hint.css('margin-top')) - 10;
+						position = 'top';
+					}
+				}
+				hint.addClass('minihint-'+position);
+				var arrow_border = $('<div>').addClass('minihint-arrow-'+position+'-border');
+				arrow_border.appendTo(hint);
+				var arrow = $('<div>').addClass('minihint-arrow-'+position);
+				arrow.css('border-'+position+'-color',hint.css('background-color'));
+				arrow.appendTo(hint);
+				
+				hint.css({'top':top,'left':left});
+			}
+
+			function getHeight(obj){
+				return obj.height()+parseInt(obj.css('padding-top'))+parseInt(obj.css('padding-bottom'));
+			}
+
+			function getWidth(obj){
+				return obj.width()+parseInt(obj.css('padding-left'))+parseInt(obj.css('padding-right'));
+			}
+		});
+	}
+})(jQuery);
+
+
+
+/*
+* MiniMobileMenu
+* Developed by MangoLight Web Agency
+* http://www.mangolight.com
+* Released under the Apache License v2.0.
+*/
+(function($){
+    $.fn.miniMobileMenu = function(options){
+
+		return this.each(function(){
+			
+			if($(this).find('.menu').length>0){
+				var menu = $(this).find('.menu').first();
+				var mobile_menu = menu.clone().hide().addClass('minimobilemenu').appendTo('body');
+				var mobile_menu_btn = $('<div>').text('☰').addClass('minimobilemenu_btn').appendTo('body').click(function(){
+					if(mobile_menu.css('display')=='none'){
+						mobile_menu.css({'top':'-100%'}).show().animate({'top':0});
+						$(this).hide().html('&times;').fadeIn();
+					}else{
+						mobile_menu.animate({'top':'-100%'},function(){
+							mobile_menu.hide();
+						});
+						$(this).hide().text('☰').fadeIn();
+					}
+				});
+				
+				mobile_menu.find('a').click(function(){
+					var link = $(this).attr('href');
+					if(link!=document.location.href) $('body').fadeOut();
+					
+					mobile_menu.animate({'top':'100%'},function(){
+						if(link!=document.location.href) document.location.href = link;
+					});
+					return false;
+				});
+
+				adaptSize(menu,mobile_menu,mobile_menu_btn);
+				$(window).resize(function(){ adaptSize(menu,mobile_menu,mobile_menu_btn); });
+			}
+
+			function adaptSize(menu,mobile_menu,mobile_menu_btn){
+				if($(window).width()<680){
+					menu.hide();
+					mobile_menu_btn.show();
+				}else{
+					menu.show();
+					mobile_menu.hide();
+					mobile_menu_btn.hide();
+				}
+			}
+		});
+		
+	}
+})(jQuery);
+

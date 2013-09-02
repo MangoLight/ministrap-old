@@ -23,6 +23,13 @@ Feel free to contact me if you use Ministrap and would like to add your site in 
 - [Components](http://www.mangolight.com/labs/ministrap/components.php)
 
 ## Changelog
+2013-09-02:
+=> Ministrap 0.3
+- Added LESS version
+- New friendly mobile menu
+- Hints changed from CSS to JS
+- Some fixes and improvements
+
 2013-08-19:
 - .has_sub replaced to .has-sub
 - .modal_bg replaced to .modal-bg
