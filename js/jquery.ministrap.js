@@ -558,7 +558,12 @@
 		return this.each(function(){
 
 			var link = $(this);
-			var hint = $('<div>').addClass('minihint').hide().appendTo('body');
+			var hint = $('<div>').addClass('minihint').hide();
+			var parent = link;
+			while(!parent.parent().is('body')){
+				parent = parent.parent();
+			}
+			hint.appendTo(parent);
 			if(link.attr('data-hint-class')) hint.addClass(link.attr('data-hint-class'));
 
 			$(window).load(function(){
