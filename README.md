@@ -23,6 +23,13 @@ Feel free to contact me if you use Ministrap and would like to add your site in 
 - [Components](http://www.mangolight.com/labs/ministrap/components.php)
 
 ## Changelog
+2013-09-24:
+- we can now close modals with the escape key
+- fixed an appearance glitch when a modal bigger than the window height was displaying a second time
+- text-align:center on .badge
+- display:inline-block on .top-bar .logo
+- improved hints displaying
+
 2013-09-02:
 => Ministrap 0.3
 - Added LESS version

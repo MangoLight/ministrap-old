@@ -131,7 +131,7 @@
             modal.bind('open',function(){
                 modal.addClass('opened');
 				modal_bg.stop().fadeIn('fast',function(){
-					modal.css({'top':0,'left':($(window).width()/2-modal.width()/2),'opacity':0}).show().stop().animate({'top':70,'opacity':1},function(){
+					modal.css({'position':'fixed','top':0,'left':($(window).width()/2-modal.width()/2),'opacity':0}).show().stop().animate({'top':70,'opacity':1},function(){
     				    adaptSize(modal);
 					});
 				}).click(function(){
@@ -142,6 +142,11 @@
                 modal.css({'left':($(window).width()/2-modal.width()/2)});
                 adaptSize(modal);
             });
+            $('body').keyup(function(e){
+				if(e.keyCode==27 && modal.is($('.modal.opened').last())){
+					closeModal(modal,modal_bg);
+				}
+			});
         }
 		
 		function closeModal(modal,modal_bg){
@@ -152,7 +157,7 @@
                     ajax=true;
                     $(this).remove();
                 }
-                modal_bg.stop().fadeOut();
+                modal_bg.stop().fadeOut('fast');
 			});
 		}
         
@@ -559,11 +564,7 @@
 
 			var link = $(this);
 			var hint = $('<div>').addClass('minihint').hide();
-			var parent = link;
-			while(!parent.parent().is('body')){
-				parent = parent.parent();
-			}
-			hint.appendTo(parent);
+			hint.appendTo('body');
 			if(link.attr('data-hint-class')) hint.addClass(link.attr('data-hint-class'));
 
 			$(window).load(function(){
@@ -575,15 +576,11 @@
 					$(window).resize(function(){ positionHint(); });
 					$(document).change(function(){ positionHint(); });
 				}else{
-					var timer;
 					link.hover(function(){
-						clearTimeout(timer);
-						console.log('init timeout');
 						positionHint();
-						console.log(hint);
-						hint.css({'display':'block','opacity':0}).animate({'opacity':1});
+						hint.stop().css({'display':'block','opacity':0}).animate({'opacity':1});
 					},function(){
-						timer = setTimeout(function(){ console.log('fin timeout'); hint.animate({'opacity':0}); },500);
+						hint.stop().animate({'opacity':0});
 					});
 				}
 			});

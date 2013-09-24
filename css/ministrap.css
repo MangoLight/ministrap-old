@@ -166,7 +166,7 @@ h6:first-child {
 .top-bar .logo {
   font-size: 25px;
   padding: 2px 0;
-  display: block;
+  display: inline-block;
 }
 .top-bar,
 .bottom-bar,
@@ -508,6 +508,7 @@ h6:first-child {
   min-width: 13px;
   line-height: 1;
   padding: 4px;
+  text-align: center;
 }
 .btn {
   border: none;
