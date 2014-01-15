@@ -1,5 +1,5 @@
 /* ==========================================================
- * Ministrap 0.3
+ * Ministrap 0.4
  * http://mangolight.github.com/ministrap
  * ==========================================================
  * Copyright 2013 MangoLight / http://www.mangolight.com
@@ -22,7 +22,7 @@
  * Theme: Ministrap Official
  * Version: 1.1
  * Creator: MangoLight / http://www.mangolight.com
- * Ministrap version: 0.3
+ * Ministrap version: 0.4
  */
 @body-bg-color: #fff;
 .body-font(){ font-family:"Helvetica Neue","Helvetica","Arial",sans-serif; }
@@ -64,6 +64,7 @@
 
 @sub-menu-bg-color: #202020;
 .sub-menu-box-shadow(){ box-shadow:0 3px 10px rgba(0,0,0,0.4); }
+@sub-menu-width: 200px;
 @sub-menu-border-radius: 0 0 10px 10px;
 @sub-menu-hover-bg-color: #333;
 @sub-menu-separation-border: 1px solid #333;
@@ -203,13 +204,17 @@ h1:first-child,h2:first-child,h3:first-child,h4:first-child,h5:first-child,h6:fi
 .sub-menu>li.active>a{background:@menu-active-bg-color;}
 .menu li{border-left:@menu-separation-border;}
 .menu li:last-child{border-right:@menu-separation-border;}
-.menu li:hover .sub-menu{display:block;}
-.sub-menu{display:none;position:absolute;width:200px;border-radius:@sub-menu-border-radius;.sub-menu-box-shadow;margin:0;padding:0;}
+.menu li:hover>.sub-menu{display:block;}
+.sub-menu{display:none;position:absolute;width:@sub-menu-width;border-radius:@sub-menu-border-radius;.sub-menu-box-shadow;margin:0;padding:0;}
 .sub-menu li{background:@sub-menu-bg-color;border:none;width:200px;}
 .sub-menu li a{border-bottom:@sub-menu-separation-border;padding:7px 0 7px 17px;}
 .sub-menu li a:hover{background:@sub-menu-hover-bg-color;}
 .sub-menu li a:before{content:'» ';}
-.sub-menu li:last-child,.sub-menu li:last-child a{border:none;border-radius:@sub-menu-border-radius;}
+.sub-menu>li:last-child,.sub-menu>li:last-child>a{border:none;border-radius:@sub-menu-border-radius;}
+.sub-menu li>.sub-menu{left:@sub-menu-width;margin-top:-38px;display:none;}
+.menu li:hover>.sub-menu:hover>.sub-menu{display:block;}
+.sub-menu li.has-sub>a:after{border-bottom:3px solid transparent;border-top:3px solid transparent;border-right:3px solid transparent;border-left:3px solid @menu-link-color;content:"";display:inline-block;margin:8px 10px 0 0;float:right;}
+.sub-menu li.has-sub:hover>a:after{border-left:3px solid @menu-link-hover-color;border-top:3px solid transparent;}
 .minimobilemenu{position:fixed;overflow:hidden;top:0;width:100%;height:100%;z-index:999999998;background:@top-bar-bg-color;overflow-y:scroll;}
 .minimobilemenu li{float:none;}
 .minimobilemenu li a{border-bottom:@menu-separation-border;height:22px;font-size:18px;}
@@ -220,6 +225,7 @@ h1:first-child,h2:first-child,h3:first-child,h4:first-child,h5:first-child,h6:fi
 .minimobilemenu .sub-menu li a{padding-left:30px;height:24px;font-size:17px;}
 .minimobilemenu .sub-menu li:last-child{border-radius:0;}
 .minimobilemenu .sub-menu li:last-child a{border:none;border-radius:0;border-bottom:@sub-menu-separation-border;}
+.minimobilemenu .sub-menu li>.sub-menu{display:block;left:auto;margin-left:30px;margin-top:0;}
 .minimobilemenu_btn{position:fixed;top:0;right:0;padding:4px 10px;color:@menu-link-color;text-align:center;z-index:999999999;cursor:pointer;font-size:25px;}
 .span1,.span2,.span3,.span4,.span5,.span6,.span7,.span8,.span9,.span10,.span11,.span12{display:block;float:left;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin:1px 10px;min-height:1px;}
 .row .row .span1:last-child,.row .row .span2:last-child,.row .row .span3:last-child,.row .row .span4:last-child,.row .row .span5:last-child,.row .row .span6:last-child,.row .row .span7:last-child,.row .row .span8:last-child,.row .row .span9:last-child,.row .row .span10:last-child,.row .row .span11:last-child,.row .row .span12:last-child{margin-right:0;}
@@ -275,7 +281,7 @@ th{padding:8px 0;background:@elements-bg-color;margin:0;}
 tbody tr:hover{background:@table-hover-bg-color;}
 tr:nth-child(2n){background:@elements-bg-color;}
 tr:not(:last-child) td,th{border-bottom:@elements-border;}
-td:not(:last-child),th:not(:last-child){;border-right:@elements-border;}
+td:not(:last-child),th:not(:last-child){border-right:@elements-border;}
 .tabs{display:none;margin:10px 0 0 0;padding:0;border-bottom:@elements-border;}
 .tabs:after{clear:both;content:'';display:table;}
 .tabs li{float:left;border:@elements-border;border-bottom:none;list-style:none;padding:3px 10px;border-radius:@tabs-border-radius-size @tabs-border-radius-size 0 0;background:@tabs-bg-color;margin-left:3px;cursor:pointer;}

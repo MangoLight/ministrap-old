@@ -1,5 +1,5 @@
 /* ==========================================================
- * Ministrap 0.3
+ * Ministrap 0.4
  * http://mangolight.github.com/ministrap
  * ==========================================================
  * Copyright 2013 MangoLight / http://www.mangolight.com
@@ -21,7 +21,7 @@
  * Theme: Ministrap Official
  * Version: 1.1
  * Creator: MangoLight / http://www.mangolight.com
- * Ministrap version: 0.3
+ * Ministrap version: 0.4
  */
 /* ### END OF CUSTOMIZATION ### */
 body {
@@ -38,14 +38,11 @@ body.with-top-bar {
 div {
   display: block;
 }
-a,
-a:visited {
+a, a:visited {
   color: #6911a0;
   text-decoration: none;
 }
-a:focus,
-a:hover,
-a:active {
+a:focus, a:hover, a:active {
   color: #8b22d1;
   text-decoration: underline;
 }
@@ -168,9 +165,7 @@ h6:first-child {
   padding: 2px 0;
   display: inline-block;
 }
-.top-bar,
-.bottom-bar,
-.modal-title {
+.top-bar, .bottom-bar, .modal-title {
   display: block;
   color: #d3d3d3;
   background-color: #1b1b1b;
@@ -196,19 +191,15 @@ h6:first-child {
 .footer .row {
   margin: 0;
 }
-.footer a,
-.footer a:visited {
+.footer a, .footer a:visited {
   color: #444444;
   text-decoration: none;
 }
-.footer a:focus,
-.footer a:hover,
-.footer a:active {
+.footer a:focus, .footer a:hover, .footer a:active {
   color: #777777;
   text-decoration: none;
 }
-.top-bar a,
-.bottom-bar a {
+.top-bar a, .bottom-bar a {
   color: #d3d3d3;
   text-decoration: none;
   text-shadow: 0 -1px 1px #000000;
@@ -315,7 +306,7 @@ h6:first-child {
 .menu li:last-child {
   border-right: 1px solid #2a2a2a;
 }
-.menu li:hover .sub-menu {
+.menu li:hover > .sub-menu {
   display: block;
 }
 .sub-menu {
@@ -342,10 +333,31 @@ h6:first-child {
 .sub-menu li a:before {
   content: '» ';
 }
-.sub-menu li:last-child,
-.sub-menu li:last-child a {
+.sub-menu > li:last-child, .sub-menu > li:last-child > a {
   border: none;
   border-radius: 0 0 10px 10px;
+}
+.sub-menu li > .sub-menu {
+  left: 200px;
+  margin-top: -38px;
+  display: none;
+}
+.menu li:hover > .sub-menu:hover > .sub-menu {
+  display: block;
+}
+.sub-menu li.has-sub > a:after {
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-left: 3px solid #999999;
+  content: "";
+  display: inline-block;
+  margin: 8px 10px 0 0;
+  float: right;
+}
+.sub-menu li.has-sub:hover > a:after {
+  border-left: 3px solid #d3d3d3;
+  border-top: 3px solid transparent;
 }
 .minimobilemenu {
   position: fixed;
@@ -393,6 +405,12 @@ h6:first-child {
   border: none;
   border-radius: 0;
   border-bottom: 1px solid #333333;
+}
+.minimobilemenu .sub-menu li > .sub-menu {
+  display: block;
+  left: auto;
+  margin-left: 30px;
+  margin-top: 0;
 }
 .minimobilemenu_btn {
   position: fixed;
@@ -489,8 +507,7 @@ h6:first-child {
 .span12 {
   width: 940px;
 }
-.label,
-.badge {
+.label, .badge {
   display: inline-block;
   color: #ffffff;
   font-size: 12px;
@@ -530,8 +547,7 @@ h6:first-child {
 .btn:hover {
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.7), 1px 1px 1px rgba(0, 0, 0, 0.2), inset 0 -2px 1px rgba(0, 0, 0, 0.4), inset 0 0 10000px rgba(255, 255, 255, 0.2);
 }
-.btn:focus,
-.btn:active {
+.btn:focus, .btn:active {
   box-shadow: inset 0 0 10000px rgba(0, 0, 0, 0.2);
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
   text-decoration: none;
@@ -539,8 +555,7 @@ h6:first-child {
 a.btn {
   color: #eeeeee;
 }
-a.btn:hover,
-.btn:hover {
+a.btn:hover, .btn:hover {
   color: #ffffff;
   text-decoration: none;
 }
@@ -601,8 +616,7 @@ hr {
   margin: 40px auto;
   text-align: center;
 }
-code,
-pre {
+code, pre {
   font-family: "Monaco", "Menlo", "Consolas", "Courier New", monospace;
   border: 1px solid #dddddd;
   border-radius: 5px;
@@ -651,8 +665,7 @@ blockquote small {
 blockquote small:before {
   content: '— ';
 }
-blockquote,
-.well {
+blockquote, .well {
   background: #f5f5f5;
   border: 1px solid #dddddd;
   border-radius: 5px;
@@ -683,12 +696,10 @@ tbody tr:hover {
 tr:nth-child(2n) {
   background: #f5f5f5;
 }
-tr:not(:last-child) td,
-th {
+tr:not(:last-child) td, th {
   border-bottom: 1px solid #dddddd;
 }
-td:not(:last-child),
-th:not(:last-child) {
+td:not(:last-child), th:not(:last-child) {
   border-right: 1px solid #dddddd;
 }
 .tabs {
@@ -779,9 +790,7 @@ th:not(:last-child) {
   padding: 7px 0;
   font-size: 14px;
 }
-.pagination ul li a,
-.pagination ul li.disabled,
-.pagination ul li.active {
+.pagination ul li a, .pagination ul li.disabled, .pagination ul li.active {
   float: left;
   padding: 4px 12px;
   line-height: 20px;
@@ -801,15 +810,11 @@ th:not(:last-child) {
   color: #ffffff;
   background: #4e077d;
 }
-.pagination ul li:first-child a,
-.pagination ul li.disabled:first-child,
-.pagination ul li.active:first-child {
+.pagination ul li:first-child a, .pagination ul li.disabled:first-child, .pagination ul li.active:first-child {
   border-left: 1px solid #dddddd;
   border-radius: 5px 0 0 5px;
 }
-.pagination ul li:last-child a,
-.pagination ul li.disabled:last-child,
-.pagination ul li.active:last-child {
+.pagination ul li:last-child a, .pagination ul li.disabled:last-child, .pagination ul li.active:last-child {
   border-radius: 0 5px 5px 0;
 }
 .nav {
@@ -902,22 +907,19 @@ input[type="submit"] {
   padding: 9px 4%!important;
   font-size: 21px;
 }
-.form-horizontal input[type="text"],
-.form-horizontal input[type="password"] {
+.form-horizontal input[type="text"], .form-horizontal input[type="password"] {
   padding: 4px 12px;
   width: auto;
   display: inline;
 }
-.form-horizontal input[type="submit"],
-.form-horizontal label {
+.form-horizontal input[type="submit"], .form-horizontal label {
   display: inline;
   width: auto;
 }
 .form-horizontal .input-large {
   padding: 10px 12px;
 }
-input,
-label {
+input, label {
   color: #222222;
   display: inline-block;
   vertical-align: middle;
@@ -925,12 +927,10 @@ label {
 .form-horizontal input:not(:last-child) {
   margin: 0 5px 5px 0;
 }
-input[type="checkbox"],
-input[type="radio"] {
+input[type="checkbox"], input[type="radio"] {
   margin: 0!important;
 }
-input[type="checkbox"]:not(:first-child),
-input[type="radio"]:not(:first-child) {
+input[type="checkbox"]:not(:first-child), input[type="radio"]:not(:first-child) {
   margin-left: 5px;
 }
 input[disabled="disabled"] {
@@ -1010,8 +1010,7 @@ label {
 .arrow-top {
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
 }
-.arrow-top:not(.scroll):after,
-.arrow-top:not(.scroll):before {
+.arrow-top:not(.scroll):after, .arrow-top:not(.scroll):before {
   bottom: 100%;
   border: solid transparent;
   content: ' ';
@@ -1037,8 +1036,7 @@ label {
 .arrow-bottom {
   box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.4);
 }
-.arrow-bottom:not(.scroll):after,
-.arrow-bottom:not(.scroll):before {
+.arrow-bottom:not(.scroll):after, .arrow-bottom:not(.scroll):before {
   top: 100%;
   border: solid transparent;
   content: ' ';
@@ -1066,8 +1064,7 @@ label {
   overflow: hidden;
   position: relative;
 }
-.carousel ul,
-.carousel li {
+.carousel ul, .carousel li {
   margin: 0;
   padding: 0;
 }
@@ -1213,8 +1210,7 @@ label {
   -ms-transition-property: background-color;
   transition-property: background-color;
 }
-.full-width,
-.img-full-width {
+.full-width, .img-full-width {
   width: 100%;
 }
 .video-full-width {
@@ -1224,9 +1220,7 @@ label {
   position: relative;
   z-index: 1 !important;
 }
-.video-full-width iframe,
-.video-full-width object,
-.video-full-width embed {
+.video-full-width iframe, .video-full-width object, .video-full-width embed {
   height: 100%;
   left: 0;
   position: absolute;
@@ -1419,8 +1413,7 @@ div.success {
   white-space: nowrap;
   display: block;
 }
-ul.unstyled,
-ul.unstyled li {
+ul.unstyled, ul.unstyled li {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -1727,8 +1720,7 @@ input[type="file"]:focus {
     width: 100%;
     margin: 2px 0;
   }
-  label,
-  .label {
+  label, .label {
     text-align: left;
   }
   input[type="text"],

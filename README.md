@@ -23,6 +23,14 @@ Feel free to contact me if you use Ministrap and would like to add your site in 
 - [Components](http://www.mangolight.com/labs/ministrap/components.php)
 
 ## Changelog
+2014-01-15:
+=> Ministrap 0.4
+- Added .sub-menu of .sub-menu (3 levels menu)
+- Added MiniSwipe plugin
+- Added touch swipe movements in MiniCarousel plugin
+- Fixed MobileMenu icon when resizing the window
+- Fixed a bug when a declared modal would appear under an ajax modal already displayed
+
 2013-09-24:
 - we can now close modals with the escape key
 - fixed an appearance glitch when a modal bigger than the window height was displaying a second time

@@ -1,5 +1,5 @@
 /* ==========================================================
- * Ministrap 0.2
+ * Ministrap 0.4
  * http://mangolight.github.com/ministrap
  * ==========================================================
  * Copyright 2013 MangoLight / http://www.mangolight.com
@@ -130,8 +130,8 @@
         function prepareModal(modal,modal_bg){
             modal.bind('open',function(){
                 modal.addClass('opened');
-				modal_bg.stop().fadeIn('fast',function(){
-					modal.css({'position':'fixed','top':0,'left':($(window).width()/2-modal.width()/2),'opacity':0}).show().stop().animate({'top':70,'opacity':1},function(){
+				modal_bg.stop().appendTo('body').fadeIn('fast',function(){
+					modal.appendTo('body').css({'position':'fixed','top':0,'left':($(window).width()/2-modal.width()/2),'opacity':0}).show().stop().animate({'top':70,'opacity':1},function(){
     				    adaptSize(modal);
 					});
 				}).click(function(){
@@ -151,10 +151,8 @@
 		
 		function closeModal(modal,modal_bg){
             modal.stop().animate({'top':-50,'opacity':0},'fast',function(){
-				$(this).hide();
-                var ajax=false;
+				$(this).hide().removeClass('opened');
                 if($(this).hasClass('ajax')){
-                    ajax=true;
                     $(this).remove();
                 }
                 modal_bg.stop().fadeOut('fast');
@@ -195,6 +193,7 @@
 			var slider_li = $(this).find('ul li');
 			slider_ul.css({'width':'999999px'});
 			adaptSize(slider_li,slider);
+			var timer;
 			
 			if(settings.arrows){
 				var left_btn = $('<div>').html('&lsaquo;').addClass('carousel-control left').appendTo(slider).click(function(){ slider.trigger('slidePrev'); });
@@ -208,7 +207,7 @@
 				updateIndicators(slider,0);
 			}
 			if(settings.auto){
-				var timer = window.setInterval(function(){ if(!slider.hasClass('hover')){slider.trigger('slideNext');} },settings.delay);
+				timer = window.setInterval(function(){ if(!slider.hasClass('hover')){slider.trigger('slideNext');} },settings.delay);
 				slider.hover(function(){
 					slider.addClass('hover');
                     clearInterval(timer);
@@ -218,6 +217,15 @@
 				});
 			}
 			
+			slider.miniSwipe({
+				swipeLeft: function(){
+					slider.trigger('slideNext').trigger('stop');
+				},
+				swipeRight: function(){
+					slider.trigger('slidePrev').trigger('stop');
+				}
+			});
+			
 			$(window).resize(function(){
 				adaptSize(slider_li,slider);
 				slider_ul.stop().css({'margin-left':0});
@@ -226,9 +234,13 @@
 				}
 			});
 			
+			slider.bind('stop',function(){
+				clearInterval(timer);
+			});
+			
 			//Use: $('.carousel').trigger('slideTo',2);
 			slider.bind('slideTo',function(event,slide){
-				if(slider.find('ul li').eq(slide).length>0 && slide>=0){
+				if(slider.find('li').eq(slide).length>0 && slide>=0){
 					slider_ul.animate({'margin-left':slide*-1*slider.width()},function(){
 						if(settings.indicators){
 							updateIndicators(slider,slide);
@@ -580,7 +592,7 @@
 						positionHint();
 						hint.stop().css({'display':'block','opacity':0}).animate({'opacity':1});
 					},function(){
-						hint.stop().animate({'opacity':0});
+						hint.stop().animate({'opacity':0},function(){ $(this).hide(); });
 					});
 				}
 			});
@@ -676,9 +688,56 @@
 				}else{
 					menu.show();
 					mobile_menu.hide();
-					mobile_menu_btn.hide();
+					mobile_menu_btn.text('☰').hide();
 				}
 			}
+		});
+		
+	}
+})(jQuery);
+
+
+
+/*
+* MiniSwipe
+* Developed by MangoLight Web Agency
+* http://www.mangolight.com
+* Released under the Apache License v2.0.
+*/
+(function($){
+    $.fn.miniSwipe = function(options){
+		
+		var settings = $.extend({
+			swipeUp: function(){},
+			swipeRight: function(){},
+			swipeBottom: function(){},
+			swipeLeft: function(){}
+		}, options);
+
+		return this.each(function(){
+			
+			var sX,sY;
+			$(this).on("touchstart",function(e){
+				sX = e.originalEvent.pageX;
+				sY = e.originalEvent.pageY;
+			});
+			
+			$(this).on("touchmove",function(e){
+				e.preventDefault();
+			});
+			
+			$(this).on("touchend",function(e){
+				var diffX = e.originalEvent.changedTouches[0].pageX-sX;
+				var diffY = e.originalEvent.changedTouches[0].pageY-sY;
+				if(Math.abs(diffY)>Math.abs(diffX)){
+					if(diffY>0) settings.swipeDown.call(this);
+					else if(diffY<0) settings.swipeUp.call(this);
+				}else{
+					if(diffX>0) settings.swipeRight.call(this);
+					else if(diffX<0) settings.swipeLeft.call(this);
+				}
+			});
+			
 		});
 		
 	}
