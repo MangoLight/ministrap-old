@@ -23,6 +23,13 @@ Feel free to contact me if you use Ministrap and would like to add your site in 
 - [Components](http://www.mangolight.com/labs/ministrap/components.php)
 
 ## Changelog
+2014-01-26:
+- Fixed a bug when a carousel is inside a tab
+
+2014-01-22:
+- modern btn styles
+- changed "blockquote small" to "blockquote cite"
+
 2014-01-15:
 => Ministrap 0.4
 - Added .sub-menu of .sub-menu (3 levels menu)

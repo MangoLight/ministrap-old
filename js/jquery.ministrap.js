@@ -349,6 +349,7 @@
 		function showActiveTab(tabs){
 			try{
 				$(tabs.find('li.active a').attr('href')).show();
+				$(window).trigger('resize');
 			}catch(e){}
 		}
 	}
