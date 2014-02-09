@@ -15,6 +15,7 @@ Ministrap is used on the project's website: [http://www.mangolight.com/labs/mini
 
 It is also used on the following sites :
 - http://www.mangolight.com
+- http://www.sni2a.fr
 
 Feel free to contact me if you use Ministrap and would like to add your site in that list.
 
@@ -23,6 +24,10 @@ Feel free to contact me if you use Ministrap and would like to add your site in 
 - [Components](http://www.mangolight.com/labs/ministrap/components.php)
 
 ## Changelog
+2014-02-09:
+- Added IE7 & IE8 stylesheet
+- Fixed menu links transition properties
+
 2014-01-26:
 - Fixed a bug when a carousel is inside a tab
 

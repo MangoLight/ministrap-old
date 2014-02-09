@@ -195,7 +195,7 @@ h1:first-child,h2:first-child,h3:first-child,h4:first-child,h5:first-child,h6:fi
 .menu{margin:0;padding:0;float:right;font-size:14px;}
 .menu:after{clear:both;content:'';display:table;}
 .menu li{float:left;list-style:none;}
-.menu li a{text-decoration:@menu-link-text-decoration;color:@menu-link-color;display:block;padding:12px 18px;height:23px;.transition-duration-fast}
+.menu li a{text-decoration:@menu-link-text-decoration;color:@menu-link-color;display:block;padding:12px 18px;height:23px;.transition-duration-fast-webkit-transition-property:color,background;-moz-transition-property:color,background;-o-transition-property:color,background;-ms-transition-property:color,background;transition-property:color,background;}
 .menu li.has-sub>a:after{border-bottom:3px solid transparent;border-left:3px solid transparent;border-right:3px solid transparent;border-top:3px solid @menu-link-color;content:"";display:inline-block;margin:10px 0 0 10px;}
 .menu>li:hover>a{color:@menu-link-hover-color;background:@menu-hover-bg-color;}
 .menu li.has-sub:hover>a:after{border-top:3px solid @menu-link-hover-color;}
