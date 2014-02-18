@@ -24,6 +24,9 @@ Feel free to contact me if you use Ministrap and would like to add your site in 
 - [Components](http://www.mangolight.com/labs/ministrap/components.php)
 
 ## Changelog
+2014-02-18
+- Fixed a bug of viewport
+
 2014-02-09:
 - Added IE7 & IE8 stylesheet
 - Fixed menu links transition properties

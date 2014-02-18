@@ -277,6 +277,11 @@ h6:first-child {
   -o-transition-duration: 0.3s;
   -ms-transition-duration: 0.3s;
   transition-duration: 0.3s;
+  -webkit-transition-property: color,background;
+  -moz-transition-property: color,background;
+  -o-transition-property: color,background;
+  -ms-transition-property: color,background;
+  transition-property: color,background;
 }
 .menu li.has-sub > a:after {
   border-bottom: 3px solid transparent;
@@ -1520,7 +1525,7 @@ input[type="file"]:focus {
     margin: 30px auto;
   }
 }
-@media (min-width: 680px) and (max-width: 959px) {
+@media (min-width: 680px) and (max-width: 975px) {
   body {
     font-size: 15px;
     line-height: 1.5;
