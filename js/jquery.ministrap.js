@@ -60,7 +60,7 @@
 				if(indicators) (indicators=="true"?indicators=true:indicators=false)
 				var auto=$(this).attr('data-auto');
 				if(auto) (auto=="true"?auto=true:auto=false)
-				var delay=$(this).attr('data-auto');
+				var delay=$(this).attr('data-delay');
 				if(delay) delay=parseInt(delay);
 				var stoponhover=$(this).attr('data-stoponhover');
 				if(stoponhover) (stoponhover=="true"?stoponhover=true:stoponhover=false)
