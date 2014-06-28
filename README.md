@@ -16,6 +16,9 @@ Ministrap is used on the project's website: [http://www.mangolight.com/labs/mini
 It is also used on the following sites :
 - http://www.mangolight.com
 - http://www.sni2a.fr
+- http://www.camille-beaute-extensions.com
+- http://www.st-lunaire-impas.fr
+- http://blog.hichemazzouz.fr
 
 Feel free to contact me if you use Ministrap and would like to add your site in that list.
 
@@ -25,7 +28,7 @@ Feel free to contact me if you use Ministrap and would like to add your site in 
 
 ## Changelog
 2014-06-28
-=> Ministrap 0.5
+- => Ministrap 0.5
 - Fixed viewport bug with nav
 - Fixed swipe plugin bug
 - Added fade mode to carousel
@@ -47,7 +50,7 @@ Feel free to contact me if you use Ministrap and would like to add your site in 
 - changed "blockquote small" to "blockquote cite"
 
 2014-01-15:
-=> Ministrap 0.4
+- => Ministrap 0.4
 - Added .sub-menu of .sub-menu (3 levels menu)
 - Added MiniSwipe plugin
 - Added touch swipe movements in MiniCarousel plugin
@@ -62,7 +65,7 @@ Feel free to contact me if you use Ministrap and would like to add your site in 
 - improved hints displaying
 
 2013-09-02:
-=> Ministrap 0.3
+- => Ministrap 0.3
 - Added LESS version
 - New friendly mobile menu
 - Hints changed from CSS to JS
@@ -82,7 +85,7 @@ Feel free to contact me if you use Ministrap and would like to add your site in 
 - fixed miniNav offset-top when not using top-bar
 	
 2013-06-08:
-=> Ministrap 0.2
+- => Ministrap 0.2
 - fixed .truncated by adding display:block
 - changed input.input-large to .input-large, that it can be used on textareas
 - changed .img-oval, .img-rounded, .img-shadow, .img-cirle, .img-polaroid to respectively
@@ -105,6 +108,6 @@ Feel free to contact me if you use Ministrap and would like to add your site in 
 - added background to code & pre tags
 	
 2013-04-08:
-=> Ministrap 0.1
+- => Ministrap 0.1
 - creation of Ministrap CSS & JS
 - creation of documentation files
