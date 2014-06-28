@@ -1,5 +1,5 @@
 <a href="http://www.mangolight.com/labs/ministrap/">
-  <img src="http://www.mangolight.com/labs/ministrap/img/icon_ministrap_128.png" width="100px">
+  <img src="http://www.mangolight.com/labs/ministrap/en/img/icon_ministrap_128.png" width="100px">
 </a>
 
 # Ministrap
@@ -24,6 +24,14 @@ Feel free to contact me if you use Ministrap and would like to add your site in 
 - [Components](http://www.mangolight.com/labs/ministrap/components.php)
 
 ## Changelog
+2014-06-28
+=> Ministrap 0.5
+- Fixed viewport bug with nav
+- Fixed swipe plugin bug
+- Added fade mode to carousel
+- Added possibility to define carousel settings with data attributes
+- Added "stop on hover" setting for carousel
+
 2014-02-18
 - Fixed a bug of viewport
 

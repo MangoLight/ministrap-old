@@ -1,8 +1,8 @@
 /* ==========================================================
- * Ministrap 0.4
- * http://mangolight.github.com/ministrap
+ * Ministrap 0.5
+ * http://www.mangolight.com/labs/ministrap
  * ==========================================================
- * Copyright 2013 MangoLight / http://www.mangolight.com
+ * Copyright 2014 MangoLight / http://www.mangolight.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,7 +41,7 @@
 			/* ----- DROPDOWNS ----- */
 			$('a[data-dropdown],select.dropdown').each(function(){
 				var scroll=$(this).attr('data-scroll');
-				if(scroll){(scroll=="true"?scroll=true:scroll=false)}
+				if(scroll)(scroll=="true"?scroll=true:scroll=false)
 				var columns=$(this).attr('data-columns');
 				if(columns) columns=parseInt(columns);
 				$(this).miniDropdown({
@@ -53,7 +53,26 @@
 			/* --------------- */
 			
 			/* ----- CAROUSEL ----- */
-			$('.carousel').miniCarousel();
+			$('.carousel').each(function(){
+			    var arrows=$(this).attr('data-arrows');
+				if(arrows) (arrows=="true"?arrows=true:arrows=false)
+				var indicators=$(this).attr('data-indicators');
+				if(indicators) (indicators=="true"?indicators=true:indicators=false)
+				var auto=$(this).attr('data-auto');
+				if(auto) (auto=="true"?auto=true:auto=false)
+				var delay=$(this).attr('data-auto');
+				if(delay) delay=parseInt(delay);
+				var stoponhover=$(this).attr('data-stoponhover');
+				if(stoponhover) (stoponhover=="true"?stoponhover=true:stoponhover=false)
+			    $(this).miniCarousel({
+			        mode: $(this).attr('data-mode'),
+			        arrows: arrows,
+			        indicators: indicators,
+			        auto: auto,
+			        delay: delay,
+			        stoponhover: stoponhover
+			    });
+			});
 			/* --------------- */
 			
 			/* ----- TO TOP ----- */
@@ -181,17 +200,22 @@
     $.fn.miniCarousel = function(options){
 		
 		var settings = $.extend({
+		    mode: 'slide', // mode: 'slide' or 'fade'
 			arrows: true, // display arrows
 			indicators: true, // display indicators
 			auto: true, // slide automatically
-			delay: 5000 // automatic slide delay
+			delay: 5000, // automatic slide delay
+			stoponhover: true // stop carousel when mouse is hover
 		}, options);
 		
 		return this.each(function(){
 			var slider = $(this);
 			var slider_ul = $(this).find('ul').eq(0);
 			var slider_li = $(this).find('ul li');
-			slider_ul.css({'width':'999999px'});
+			slider_ul.css({'width':'999999px'}).attr('data-current-slide',0);
+			if(settings.mode=='fade'){
+			    slider_li.css({'position':'absolute','opacity':0}).eq(0).css({'opacity':1,'position':'relative'});
+			}
 			adaptSize(slider_li,slider);
 			var timer;
 			
@@ -208,13 +232,15 @@
 			}
 			if(settings.auto){
 				timer = window.setInterval(function(){ if(!slider.hasClass('hover')){slider.trigger('slideNext');} },settings.delay);
-				slider.hover(function(){
-					slider.addClass('hover');
-                    clearInterval(timer);
-				},function(){
-					slider.removeClass('hover');
-                    timer = window.setInterval(function(){ if(!slider.hasClass('hover')){slider.trigger('slideNext');} },settings.delay);
-				});
+				if(settings.stoponhover){
+                    slider.hover(function(){
+                        slider.addClass('hover');
+                        clearInterval(timer);
+                    },function(){
+                        slider.removeClass('hover');
+                        timer = window.setInterval(function(){ if(!slider.hasClass('hover')){slider.trigger('slideNext');} },settings.delay);
+                    });
+				}
 			}
 			
 			slider.miniSwipe({
@@ -229,8 +255,9 @@
 			$(window).resize(function(){
 				adaptSize(slider_li,slider);
 				slider_ul.stop().css({'margin-left':0});
-				if(settings.indicators){
-					updateIndicators(slider,0);
+				if(settings.indicators && settings.mode=='slide'){
+				    slider_ul.attr('data-current-slide',0);
+				    updateIndicators(slider,0);
 				}
 			});
 			
@@ -241,25 +268,28 @@
 			//Use: $('.carousel').trigger('slideTo',2);
 			slider.bind('slideTo',function(event,slide){
 				if(slider.find('li').eq(slide).length>0 && slide>=0){
-					slider_ul.animate({'margin-left':slide*-1*slider.width()},function(){
-						if(settings.indicators){
-							updateIndicators(slider,slide);
-						}
-					});
+                    slider_ul.attr('data-current-slide',slide);
+                    if(settings.indicators) updateIndicators(slider,slide);
+					if(settings.mode=='slide'){
+					    slider_ul.stop().animate({'margin-left':slide*-1*slider.width()});
+					}
+					if(settings.mode=='fade'){
+					    slider_li.stop().animate({'opacity':0}).eq(slide).stop().animate({'opacity':1});
+					}
 				}
 			});
 			
 			//Use: $('.carousel').trigger('slidePrev');
 			slider.bind('slidePrev',function(){
-				var slide = parseInt((parseInt(slider.find('ul').css('margin-left').replace('px'))*(-1))/slider.width());
+				var slide = slider_ul.attr('data-current-slide');
 				var nb_slide = slider.find('li').length;
-				if(slide===0) slide = nb_slide-1; else slide--;
+				if(slide==0) slide = nb_slide-1; else slide--;
 				slider.trigger('slideTo',slide);
 			});
 			
 			//Use: $('.carousel').trigger('slideNext');
 			slider.bind('slideNext',function(){
-				var slide = parseInt((parseInt(slider.find('ul').css('margin-left').replace('px'))*(-1))/slider.width());
+				var slide = slider_ul.attr('data-current-slide');
 				var nb_slide = slider.find('li').length;
 				if(slide==nb_slide-1) slide=0; else slide++;
 				slider.trigger('slideTo',slide);
@@ -399,7 +429,7 @@
 		
 		function positionNav(obj){
 			initNav(obj);
-			if($(window).width()>=680){
+			if($(window).width()>=665){
 				fixNav(obj);
 				setTopNav(obj);
 			}
@@ -683,7 +713,7 @@
 			}
 
 			function adaptSize(menu,mobile_menu,mobile_menu_btn){
-				if($(window).width()<680){
+				if($(window).width()<665){
 					menu.hide();
 					mobile_menu_btn.show();
 				}else{
@@ -719,8 +749,8 @@
 			
 			var sX,sY;
 			$(this).on("touchstart",function(e){
-				sX = e.originalEvent.pageX;
-				sY = e.originalEvent.pageY;
+				sX = e.originalEvent.targetTouches[0].screenX;
+				sY = e.originalEvent.targetTouches[0].screenY;
 			});
 			
 			$(this).on("touchmove",function(e){
@@ -728,8 +758,8 @@
 			});
 			
 			$(this).on("touchend",function(e){
-				var diffX = e.originalEvent.changedTouches[0].pageX-sX;
-				var diffY = e.originalEvent.changedTouches[0].pageY-sY;
+				var diffX = e.originalEvent.changedTouches[0].screenX-sX;
+				var diffY = e.originalEvent.changedTouches[0].screenY-sY;
 				if(Math.abs(diffY)>Math.abs(diffX)){
 					if(diffY>0) settings.swipeDown.call(this);
 					else if(diffY<0) settings.swipeUp.call(this);

@@ -1,8 +1,8 @@
 /* ==========================================================
- * Ministrap 0.4
- * http://mangolight.github.com/ministrap
+ * Ministrap 0.5
+ * http://www.mangolight.com/labs/ministrap
  * ==========================================================
- * Copyright 2013 MangoLight / http://www.mangolight.com
+ * Copyright 2014 MangoLight / http://www.mangolight.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -308,9 +308,9 @@ td:not(:last-child),th:not(:last-child){border-right:@elements-border;}
 .pagination ul li:first-child a,.pagination ul li.disabled:first-child,.pagination ul li.active:first-child{border-left:@elements-border;border-radius:@elements-border-radius 0 0 @elements-border-radius;}
 .pagination ul li:last-child a,.pagination ul li.disabled:last-child,.pagination ul li.active:last-child{border-radius:0 @elements-border-radius @elements-border-radius 0;}
 .nav{padding:0;margin:0 0 10px;display:block;}
-.nav li{list-style:none;margin:0;}
+.nav li{list-style:none;margin:0;position:relative;}
 .nav li a{display:block;padding:5px 10px;background:@nav-bg-color;border:@elements-border;}
-.nav li a:after{content:'»';float:right;}
+.nav li a:after{content:'»';position:absolute;right:10px;}
 .nav li:not(:last-child) a{border-bottom:none;}
 .nav li a:hover{background-color:@nav-hover-bg-color;text-decoration:none;}
 .nav li.active a{background-color:@elements-active-bg-color;color:@elements-active-color;text-decoration:none;}
@@ -361,6 +361,7 @@ label{cursor:pointer;margin:0 5px 0 0!important;display:block;}
 .carousel ul,.carousel li{margin:0;padding:0;}
 .carousel li{list-style:none;display:block;float:left;position:relative;line-height:0;}
 .carousel li > img{width:100%;}
+.carousel p{line-height:1.5;}
 .carousel-caption{background:@carousel-caption-bg-color;color:@carousel-caption-color;position:absolute;bottom:0;padding:10px;line-height:1.5;}
 .carousel-control{position:absolute;top:50%;margin-top:-20px;cursor:pointer;font-size:40px;color:@carousel-control-color;border:@carousel-control-border;border-radius:100%;width:40px;height:40px;text-align:center;background:@carousel-control-bg-color;line-height:0.9;opacity:0.5;font-family:"Helvetica Neue","Helvetica","Arial",sans-serif;}
 .carousel-control:hover{opacity:1;.transition-duration-normal}
