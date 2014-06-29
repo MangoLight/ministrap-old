@@ -3,7 +3,7 @@
 </a>
 
 # Ministrap
-Ministrap, a small front-end framework inspired from [Bootstrap](http://twitter.github.com/bootstrap) for faster and easier web development, created by [Nicolas Thomas](http://twitter.com/nicolasthomas) for [MangoLight](http://www.mangolight.com) Web agency.
+Ministrap, a small front-end framework inspired from [Bootstrap](http://getbootstrap.com/) for faster and easier web development, created by [Nicolas Thomas](http://www.nicolasthomas.fr) for [MangoLight](http://www.mangolight.com) Web agency.
 
 ## Why ?
 - Only the best from Bootstrap, in more simple (and faster)
