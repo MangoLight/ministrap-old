@@ -31,6 +31,7 @@ Feel free to contact me if you use Ministrap and would like to add your site in 
 - New theme
 - Including a new default font: "Lato"
 - Including font icons from "Open Iconic"
+
 2014-06-28
 - => Ministrap 0.5
 - Fixed viewport bug with nav
