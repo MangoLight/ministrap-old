@@ -1,5 +1,5 @@
 /* ==========================================================
- * Ministrap 0.5
+ * Ministrap 1.0
  * http://www.mangolight.com/labs/ministrap
  * ==========================================================
  * Copyright 2014 MangoLight / http://www.mangolight.com

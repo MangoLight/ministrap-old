@@ -8,7 +8,7 @@ Ministrap, a small front-end framework inspired from [Bootstrap](http://getboots
 ## Why ?
 - Only the best from Bootstrap, in more simple (and faster)
 - Works well on all major browsers and devices
-- Fast: Only some lines of CSS & Javascript, <10kb gzipped
+- Fast: Only some lines of CSS & Javascript, and 2 fonts.
 
 ## Demo
 Ministrap is used on the project's website: [http://www.mangolight.com/labs/ministrap](http://www.mangolight.com/labs/ministrap)
@@ -18,7 +18,6 @@ It is also used on the following sites :
 - http://www.sni2a.fr
 - http://www.camille-beaute-extensions.com
 - http://www.st-lunaire-impas.fr
-- http://blog.hichemazzouz.fr
 
 Feel free to contact me if you use Ministrap and would like to add your site in that list.
 
@@ -27,6 +26,11 @@ Feel free to contact me if you use Ministrap and would like to add your site in 
 - [Components](http://www.mangolight.com/labs/ministrap/components.php)
 
 ## Changelog
+2014-09-12
+- => Ministrap 1.0
+- New theme
+- Including a new default font: "Lato"
+- Including font icons from "Open Iconic"
 2014-06-28
 - => Ministrap 0.5
 - Fixed viewport bug with nav
