@@ -896,7 +896,7 @@ input[type="file"] {
   width: 92%;
   margin: 0 0 10px 0;
   background: #ffffff;
-  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 textarea {
   resize: vertical;
@@ -1124,27 +1124,27 @@ label {
 .carousel-control {
   position: absolute;
   top: 50%;
-  margin-top: -20px;
+  margin-top: -10px;
   cursor: pointer;
-  font-size: 40px;
+  font-size: 100px;
   color: #ffffff;
-  border: 2px solid #ffffff;
-  border-radius: 100%;
-  width: 40px;
-  height: 40px;
+  text-shadow: 0 0 1px black;
   text-align: center;
-  background: #000000;
-  line-height: 0.9;
+  line-height: 0;
   opacity: 0.5;
-  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-}
-.carousel-control:hover {
-  opacity: 1;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   -webkit-transition-duration: 1s;
   -moz-transition-duration: 1s;
   -o-transition-duration: 1s;
   -ms-transition-duration: 1s;
   transition-duration: 1s;
+}
+.carousel-control:hover {
+  opacity: 1;
 }
 .carousel-control.left {
   left: 10px;
