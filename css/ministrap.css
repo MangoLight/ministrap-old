@@ -49,7 +49,7 @@ a:active {
   text-decoration: underline;
 }
 a img {
-  border: none;
+  border: 0;
 }
 h1,
 h2,
@@ -327,7 +327,7 @@ h6:first-child {
 }
 .sub-menu li {
   background: #ffffff;
-  border: none;
+  border: 0;
   width: 200px;
 }
 .sub-menu li a {
@@ -340,18 +340,22 @@ h6:first-child {
 .sub-menu li a:before {
   content: '» ';
 }
+.sub-menu .sub-menu > li:first-child,
+.sub-menu .sub-menu > li:first-child > a {
+  border-radius: 4px 4px 0 0;
+}
+.sub-menu .sub-menu {
+  border-top: 0;
+}
 .sub-menu > li:last-child,
 .sub-menu > li:last-child > a {
-  border: none;
+  border: 0;
   border-radius: 0 0 4px 4px;
 }
 .sub-menu li > .sub-menu {
   left: 200px;
-  margin-top: -38px;
+  margin-top: -36px;
   display: none;
-}
-.menu li:hover > .sub-menu:hover > .sub-menu {
-  display: block;
 }
 .sub-menu li.has-sub > a:after {
   border-bottom: 3px solid transparent;
@@ -380,23 +384,27 @@ h6:first-child {
 .minimobilemenu li {
   float: none;
 }
+.minimobilemenu li:last-child {
+  border-right: none;
+}
 .minimobilemenu li a {
   border-bottom: 1px solid #dddddd;
   height: 22px;
   font-size: 18px;
 }
 .minimobilemenu li.has-sub > a:after {
-  border: none;
+  border: 0;
   margin: 0 0 0 5px;
 }
 .minimobilemenu li.has-sub:hover > a:after {
-  border: none;
+  border: 0;
 }
 .minimobilemenu .sub-menu {
   display: block;
   width: 100%;
   position: static;
   box-shadow: none;
+  border-top: none;
 }
 .minimobilemenu .sub-menu li {
   width: 100%;
@@ -410,7 +418,7 @@ h6:first-child {
   border-radius: 0;
 }
 .minimobilemenu .sub-menu li:last-child a {
-  border: none;
+  border: 0;
   border-radius: 0;
   border-bottom: 1px solid #dddddd;
 }
@@ -536,7 +544,7 @@ h6:first-child {
   text-align: center;
 }
 .btn {
-  border: none;
+  border: 0;
   display: inline-block;
   padding: 4px 12px;
   border-radius: 3px;
@@ -634,7 +642,7 @@ a.btn:active {
 hr {
   width: 75%;
   padding: 0;
-  border: none;
+  border: 0;
   border-top: 1px solid #eeeeee;
   margin: 40px auto;
   text-align: center;
