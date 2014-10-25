@@ -17,7 +17,6 @@ It is also used on the following sites :
 - http://www.mangolight.com
 - http://www.sni2a.fr
 - http://www.camille-beaute-extensions.com
-- http://www.st-lunaire-impas.fr
 
 Feel free to contact me if you use Ministrap and would like to add your site in that list.
 
@@ -26,6 +25,10 @@ Feel free to contact me if you use Ministrap and would like to add your site in 
 - [Components](http://www.mangolight.com/labs/ministrap/components.php)
 
 ## Changelog
+2014-10-25
+- => Ministrap 1.1
+- New component: date/time picker
+
 2014-09-12
 - => Ministrap 1.0
 - New theme

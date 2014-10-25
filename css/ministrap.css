@@ -1,5 +1,5 @@
 /* ==========================================================
- * Ministrap 1.0
+ * Ministrap 1.1
  * http://www.mangolight.com/labs/ministrap
  * ==========================================================
  * Copyright 2014 MangoLight / http://www.mangolight.com
@@ -385,7 +385,7 @@ h6:first-child {
   float: none;
 }
 .minimobilemenu li:last-child {
-  border-right: none;
+  border-right: 0;
 }
 .minimobilemenu li a {
   border-bottom: 1px solid #dddddd;
@@ -404,7 +404,7 @@ h6:first-child {
   width: 100%;
   position: static;
   box-shadow: none;
-  border-top: none;
+  border-top: 0;
 }
 .minimobilemenu .sub-menu li {
   width: 100%;
@@ -752,7 +752,7 @@ th:not(:last-child) {
 .tabs li {
   float: left;
   border: 1px solid #dddddd;
-  border-bottom: none;
+  border-bottom: 0;
   list-style: none;
   padding: 3px 10px;
   border-radius: 4px 4px 0 0;
@@ -1477,6 +1477,54 @@ select[multiple="multiple"]:focus,
 input[type="file"]:focus {
   box-shadow: 0 0 0 1px #4285f4;
   outline: none;
+}
+.minidateslector_popup {
+  display: block;
+  position: absolute;
+  z-index: 999999997;
+  display: none;
+  background: #ffffff;
+  border-radius: 3px;
+}
+.minidateslector_popup table {
+  margin: 0;
+  border: 0;
+  width: auto;
+}
+.minidateslector_popup tr {
+  vertical-align: top;
+  background-color: transparent!important;
+}
+.minidateslector_popup td {
+  text-align: left!important;
+  border: 0!important;
+  padding: 15px 15px 0 15px;
+}
+.minidateslector_popup table:last-child td {
+  padding-bottom: 15px;
+}
+.minidateslector_popup span {
+  display: inline-block;
+  margin: 1px;
+  border: 1px solid #dddddd;
+  font-size: 13px;
+  padding: 5px;
+  line-height: 1;
+  cursor: pointer;
+  text-align: center;
+}
+.minidateslector_popup span:hover {
+  background-color: #eeeeee;
+}
+.minidateslector_popup span.active {
+  background-color: #4285f4;
+  color: #ffffff;
+}
+.minidateslector_popup .months span {
+  width: 30px;
+}
+.minidateslector_popup .years span {
+  width: 35px;
 }
 .show-mobile {
   display: none;
