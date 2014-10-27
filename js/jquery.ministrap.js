@@ -92,7 +92,7 @@
             /* --------------- */
             
             /* ----- DATE PICKER ----- */
-            $('.date-selector').each(function(){
+            $('.date-picker').each(function(){
                 $(this).miniDatePicker({
                     'type': $(this).attr('data-type'),
                     'language': $(this).attr('data-language')
