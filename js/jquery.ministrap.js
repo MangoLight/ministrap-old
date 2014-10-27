@@ -837,7 +837,7 @@
             }
             
             var input = $(this);
-            var popup = $('<div>').addClass('minidateslector_popup minidateslector_'+settings.type).appendTo('body');
+            var popup = $('<div>').addClass('minidateslector_popup').appendTo('body');
             var timer;
             
             loadContent(input,popup);
@@ -953,7 +953,6 @@
                     if(t<10) t = '0'+t;
                     if(i%4==0 && i>0) minutes.append('<br/>');
                     minutes.append($('<span>').text(t));
-                    
                 }
                 tr.append(minutes);
                 
