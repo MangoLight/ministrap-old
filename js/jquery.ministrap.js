@@ -998,6 +998,7 @@
                 date += hours+':'+minutes+':00';
             }
             input.val(date);
+            input.trigger('change');
         }
         
         function openPopup(input,popup){
