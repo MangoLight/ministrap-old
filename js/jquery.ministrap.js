@@ -853,10 +853,14 @@
                 },1000);
             });
             
-            popup.on('mouseenter',function(){
-                console.log('enter');
+            input.on('blur',function(){
+                timer = setTimeout(function(){
+                    popup.fadeOut('fast');
+                },300);
+            });
+            
+            popup.on('mousemove',function(){
                 clearInterval(timer);
-                console.log(timer);
             });
             
             input.on('keydown',function(){
@@ -864,6 +868,7 @@
             });
             
             popup.find('span').click(function(){
+                clearInterval(timer);
                 $(this).parent().find('.active').removeClass('active');
                 $(this).addClass('active');
                 updateDate(input,popup);
