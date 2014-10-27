@@ -837,13 +837,13 @@
             }
             
             var input = $(this);
-            var popup = $('<div>').addClass('minidateslector_popup').appendTo('body');
+            var popup = $('<div>').addClass('minidatepicker_popup').appendTo('body');
             var timer;
             
             loadContent(input,popup);
             
             input.on('focus click',function(){
-                $('.minidateslector_popup').hide();
+                $('.minidatepicker_popup').hide();
                 openPopup(input,popup);
             });
             

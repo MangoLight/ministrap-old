@@ -1470,7 +1470,7 @@ input[type="file"]:focus {
   box-shadow: 0 0 0 1px #4285f4;
   outline: none;
 }
-.minidateslector_popup {
+.minidatepicker_popup {
   display: block;
   position: absolute;
   z-index: 999999997;
@@ -1478,24 +1478,24 @@ input[type="file"]:focus {
   background: #ffffff;
   border-radius: 3px;
 }
-.minidateslector_popup table {
+.minidatepicker_popup table {
   margin: 0;
   border: 0;
   width: auto;
 }
-.minidateslector_popup tr {
+.minidatepicker_popup tr {
   vertical-align: top;
   background-color: transparent!important;
 }
-.minidateslector_popup td {
+.minidatepicker_popup td {
   text-align: left!important;
   border: 0!important;
   padding: 15px 15px 0 15px;
 }
-.minidateslector_popup table:last-child td {
+.minidatepicker_popup table:last-child td {
   padding-bottom: 15px;
 }
-.minidateslector_popup span {
+.minidatepicker_popup span {
   display: inline-block;
   margin: 1px;
   border: 1px solid #dddddd;
@@ -1505,17 +1505,17 @@ input[type="file"]:focus {
   cursor: pointer;
   text-align: center;
 }
-.minidateslector_popup span:hover {
+.minidatepicker_popup span:hover {
   background-color: #eeeeee;
 }
-.minidateslector_popup span.active {
+.minidatepicker_popup span.active {
   background-color: #4285f4;
   color: #ffffff;
 }
-.minidateslector_popup .months span {
+.minidatepicker_popup .months span {
   width: 30px;
 }
-.minidateslector_popup .years span {
+.minidatepicker_popup .years span {
   width: 35px;
 }
 .show-mobile {
