@@ -219,8 +219,8 @@
         
         return this.each(function(){
             var slider = $(this);
-            var slider_ul = $(this).find('ul').eq(0);
-            var slider_li = $(this).find('ul li');
+            var slider_ul = $(this).children('ul').eq(0);
+            var slider_li = slider_ul.children('li').show();
             slider_ul.css({'width':'999999px'}).attr('data-current-slide',0);
             if(settings.mode=='fade'){
                 slider_li.css({'position':'absolute','opacity':0}).eq(0).css({'opacity':1,'position':'relative'});
@@ -276,7 +276,7 @@
             
             //Use: $('.carousel').trigger('slideTo',2);
             slider.bind('slideTo',function(event,slide){
-                if(slider.find('li').eq(slide).length>0 && slide>=0){
+                if(slider_ul.children('li').eq(slide).length>0 && slide>=0){
                     slider_ul.attr('data-current-slide',slide);
                     if(settings.indicators) updateIndicators(slider,slide);
                     if(settings.mode=='slide'){
@@ -291,7 +291,7 @@
             //Use: $('.carousel').trigger('slidePrev');
             slider.bind('slidePrev',function(){
                 var slide = slider_ul.attr('data-current-slide');
-                var nb_slide = slider.find('li').length;
+                var nb_slide = slider_ul.children('li').length;
                 if(slide==0) slide = nb_slide-1; else slide--;
                 slider.trigger('slideTo',slide);
             });
@@ -299,7 +299,7 @@
             //Use: $('.carousel').trigger('slideNext');
             slider.bind('slideNext',function(){
                 var slide = slider_ul.attr('data-current-slide');
-                var nb_slide = slider.find('li').length;
+                var nb_slide = slider_ul.children('li').length;
                 if(slide==nb_slide-1) slide=0; else slide++;
                 slider.trigger('slideTo',slide);
             });

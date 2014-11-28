@@ -1096,23 +1096,30 @@ label {
   overflow: hidden;
   position: relative;
 }
-.carousel ul,
-.carousel li {
+.carousel > ul,
+.carousel > ul > li {
   margin: 0;
   padding: 0;
 }
-.carousel li {
+.carousel > ul > li {
   list-style: none;
   display: block;
   float: left;
   position: relative;
   line-height: 0;
 }
-.carousel li > img {
+.carousel > ul > li:not(:first-child) {
+  display: none;
+}
+.carousel img {
   width: 100%;
 }
-.carousel p {
+.carousel p,
+.carousel > ul > li > ul {
   line-height: 1.5;
+}
+.carousel p img {
+  width: auto;
 }
 .carousel-caption {
   background: rgba(0, 0, 0, 0.7);

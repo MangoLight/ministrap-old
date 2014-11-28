@@ -25,6 +25,13 @@ Feel free to contact me if you use Ministrap and would like to add your site in 
 - [Components](http://www.mangolight.com/labs/ministrap/components.php)
 
 ## Changelog
+2014-11-27
+- Added possibility to have lists inside carousels
+
+2014-10-27
+- Form classes changes
+- Datepicker improvements
+
 2014-10-25
 - => Ministrap 1.1
 - New component: date/time picker
@@ -33,7 +40,7 @@ Feel free to contact me if you use Ministrap and would like to add your site in 
 - => Ministrap 1.0
 - New theme
 - Including a new default font: "Lato"
-- Including font icons from "Open Iconic"
+- Including a font for icons from "Open Iconic"
 
 2014-06-28
 - => Ministrap 0.5

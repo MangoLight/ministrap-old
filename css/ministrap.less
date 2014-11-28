@@ -348,10 +348,12 @@ label{cursor:pointer;margin:0 5px 0 0!important;display:inline-block;}
 .arrow-bottom:not(.scroll):after{border-color:rgba(255,255,255,0);border-top-color:@body-bg-color;border-width:7px;left:50%;margin-left:-7px;}
 .arrow-bottom:not(.scroll):before{border-color:rgba(221,221,221,0);border-top:@elements-border;border-width:8px;left:50%;margin-left:-8px;}
 .carousel{width:100%;overflow:hidden;position:relative;}
-.carousel ul,.carousel li{margin:0;padding:0;}
-.carousel li{list-style:none;display:block;float:left;position:relative;line-height:0;}
-.carousel li > img{width:100%;}
-.carousel p{line-height:1.5;}
+.carousel > ul,.carousel > ul > li{margin:0;padding:0;}
+.carousel > ul > li{list-style:none;display:block;float:left;position:relative;line-height:0;}
+.carousel > ul > li:not(:first-child){display:none;}
+.carousel img{width:100%;}
+.carousel p,.carousel > ul > li > ul{line-height:1.5;}
+.carousel p img{width:auto;}
 .carousel-caption{background:@carousel-caption-bg-color;color:@carousel-caption-color;position:absolute;bottom:0;padding:10px;line-height:1.5;}
 .carousel-control{position:absolute;top:50%;margin-top:-10px;cursor:pointer;font-size:100px;color:@carousel-control-color;text-shadow:0 0 1px black;text-align:center;line-height:0;opacity:0.5;.body-font;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;.transition-duration-normal}
 .carousel-control:hover{opacity:1;}
