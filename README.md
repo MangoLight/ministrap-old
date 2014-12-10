@@ -25,6 +25,9 @@ Feel free to contact me if you use Ministrap and would like to add your site in 
 - [Components](http://www.mangolight.com/labs/ministrap/components.php)
 
 ## Changelog
+2014-12-10
+- Fixes on date/time picker component
+
 2014-11-27
 - Added possibility to have lists inside carousels
 

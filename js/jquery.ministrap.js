@@ -94,8 +94,8 @@
             /* ----- DATE PICKER ----- */
             $('.date-picker').each(function(){
                 $(this).miniDatePicker({
-                    'type': $(this).attr('data-type'),
-                    'language': $(this).attr('data-language')
+                    type: $(this).attr('data-type'),
+                    language: $(this).attr('data-language')
                 });
             });
             /* --------------- */
@@ -1048,7 +1048,7 @@
                 try{
                     d = new Date(val);
                     var minutes = d.getMinutes();
-                    if(minutes){
+                    if(minutes!==null){
                         popup.find('.hours span,.minutes span,.parts span').removeClass('active');
                         popup.find('.minutes span').eq(Math.floor(minutes/5)).addClass('active');
                         var hours = d.getHours();
