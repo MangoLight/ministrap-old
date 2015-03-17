@@ -1,8 +1,14 @@
-<a href="http://www.mangolight.com/labs/ministrap/">
-  <img src="http://www.mangolight.com/labs/ministrap/en/img/icon_ministrap_128.png" width="100px">
-</a>
+# Ministrap is now Kissium
+Ministrap changed a lot since is 2013! It is now called [Kissium](https://github.com/MangoLight/kissium). You can find more information about Kissium at http://www.kissium.com
 
-# Ministrap
+
+
+
+---------------------------------------------
+OUTDATED INFORMATION
+---------------------------------------------
+
+## Ministrap
 Ministrap, a small front-end framework inspired from [Bootstrap](http://getbootstrap.com/) for faster and easier web development, created by [Nicolas Thomas](http://www.nicolasthomas.fr) for [MangoLight](http://www.mangolight.com) Web agency.
 
 ## Why ?
